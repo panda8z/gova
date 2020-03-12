@@ -4,33 +4,35 @@ import (
 	"encoding/binary"
 )
 
+// ClassReader 读取器
 type ClassReader struct {
 	data []byte
 }
 
 // u1类型数据
 func (cr *ClassReader) readUint8() uint8 {
-	value = cr.data[0]    // 字节数组的 第一个就是8位
+	value := cr.data[0]    // 字节数组的 第一个就是8位
 	cr.data = cr.data[1:] // 字节数组剩余部分
 	return value
 }
+
 // u2类型数据
 func (cr *ClassReader) readUint16() uint16 {
-	value = binary.BigEndian.Uint16(cr.data) // 用Go标准库读取多字节。
+	value := binary.BigEndian.Uint16(cr.data) // 用Go标准库读取多字节。
 	cr.data = cr.data[2:]                    // 字节数组剩余部分。
 	return value
 }
 
 // u4类型数据
 func (cr *ClassReader) readUint32() uint32 {
-	value = binary.BigEndian.Uint32(cr.data) // 用Go标准库读取多字节。
+	value := binary.BigEndian.Uint32(cr.data) // 用Go标准库读取多字节。
 	cr.data = cr.data[4:]                    // 字节数组剩余部分。
 	return value
 }
 
 // 读取uint64(Java虚拟机规范并没有定义u8)类型数据
 func (cr *ClassReader) readUint64() uint64 {
-	value = binary.BigEndian.Uint64(cr.data) // 用Go标准库读取多字节。
+	value := binary.BigEndian.Uint64(cr.data) // 用Go标准库读取多字节。
 	cr.data = cr.data[8:]                    // 字节数组剩余部分。
 	return value
 }
