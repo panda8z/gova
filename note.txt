@@ -89,3 +89,69 @@ Topic：LocalVars 局部便量表
 
 2020年03月16日10:12:40
 进行到5.6.1
+
+Topic: dup.go
+    // 复制栈顶单个变量
+    完全不知到这个指令是干什么的。。。
+
+Topic：swap.go
+
+    // 交换栈顶两个变量
+
+Topic：算术指令 rem.go
+
+    求余指令
+    主要使用go语言的 取余运算符 % 和 math包里面的 Mod方法实现。
+
+Topic: 算术指令 sh.go
+
+    实现位运算
+    有无逻辑的左移右移 
+
+Topic：布尔运算指令
+
+    布尔运算指令只能操作int和long变量，
+    按位与 and
+    按位或 or
+    按位异或 xor
+    其实真正的位运算实现是go语言的语法实现的。
+
+Topic： iinc指令
+    初看这个命令名字完全不知道是什么，
+
+    iinc指令给局部变量表中的int变量增加常量值，局部变量表
+    索引和常量值都由指令的操作数提供。
+
+Topic：类型转换指令
+    在类型转换命令之前我们要明白的是
+    java 和 go 自身的 基本数值类型的对应关系
+
+    另外 Stack的pushXXX方法都是针对Java类型的。
+    要用最终转换的类型pushXXX
+
+Topic：int 转换成其他类型
+
+    java里面的int 可以转换成几乎所有的基本类型，但是 jvm规范给出了一下几种：
+        1. int 转 short
+        2. int 转 char
+        3. int 转 long
+        4. int 转 float
+        5. int 转 double
+Topic：double 转换到其他类型
+
+    d2i d2f d2l
+
+    double 转换到int float long
+
+    这种转换实际的完成方法是使用Go语言的强制转换方法。
+
+Topic：long 转换到其他类型
+
+    l2x.go
+
+    主要的转换方式在于 java里面的 float 在 go里面的了类型有那些
+    Java 的 long 对应 go 的 int64
+    从 Stack 里面读取 long
+    转换成  float  double int
+    
+    如果想转换成short 对不起， 没有这个指令 用int 转 short 代替
