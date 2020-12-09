@@ -6,13 +6,12 @@
     
     "configurations": [
         {
-            "name": "ch02",
+            "name": "test",
             "type": "go",
             "request": "launch",
             "mode": "debug",
-            "program": "/Users/panda8z/git4me/gova-jvm/ch02",
+            "program": "",
             "env": {
-                //"GOPATH": "/Users/panda8z/git4me/gova-jvm/ch02",
 
             },
             "args": ["-Xjre", "/Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home/jre", "java.lang.Object"],
